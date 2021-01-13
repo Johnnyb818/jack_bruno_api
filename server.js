@@ -1,3 +1,7 @@
+require("dotenv").config();
+const { PORT = 6000, NODE_ENV = "development" } = process.env;
+
+//Bringing in Express
 const express = require('express')
 const app = express()
 
