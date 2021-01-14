@@ -34,10 +34,15 @@ videos.put("/:id", (req,res)=>{
     })
 })
 
-
-
-
-
+// CREATE
+videos.post("/", (req,res)=>{
+    Video.create(req.body, (error, createdVideo)=>{
+        if (error){
+            res.status(400).json({error:error.message})
+        }
+        res.status(200).json(createdVideo)
+    })
+})
 
 
 module.exports = videos
