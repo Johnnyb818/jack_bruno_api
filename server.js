@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { PORT = 6000, NODE_ENV = "development" } = process.env;
+const { PORT = 7000, NODE_ENV = "development" } = process.env;
 
 //Bringing in Express
 const express = require('express')
@@ -25,11 +25,10 @@ app.use(express.json());
 app.use(morgan("tiny")); //logging
 
 
+//Controllers
+const videoController = require("./controllers/videos.js")
 
-
-
-
-
+app.use("/videos", videoController)
 
 
 
