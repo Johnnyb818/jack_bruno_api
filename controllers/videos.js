@@ -24,7 +24,15 @@ videos.delete("/:id", (req,res)=>{
     })
 })
 
-
+// UPDATE
+videos.put("/:id", (req,res)=>{
+    Video.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedVideo)=>{
+        if (error){
+            res.status(400).json({error:error.message})
+        }
+        res.status(200).json(updatedVideo)
+    })
+})
 
 
 
