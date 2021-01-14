@@ -14,6 +14,16 @@ videos.get("/", (req,res)=>{
     })
 })
 
+// DELETE
+videos.delete("/:id", (req,res)=>{
+    Video.findByIdAndRemove(req.params.id, (error, deletedVideo)=>{
+        if (error){
+            res.status(400).json({error:error.message})
+        }
+        res.status(200).json(deletedVideo)
+    })
+})
+
 
 
 
