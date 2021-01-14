@@ -6,11 +6,23 @@ const express = require('express')
 const app = express()
 
 
+// MONGO Connection
+const mongoose = require('./DB/conn')
+
+// CORS
+const cors = require("cors")
 
 
 
 //OTHER IMPORTS
 const morgan = require("morgan");
+
+
+// MIDDLEWARE
+NODE_ENV === "production" ? app.use(cors()) : app.use(cors());
+app.use(cors())
+app.use(express.json());
+app.use(morgan("tiny")); //logging
 
 
 
